@@ -2,11 +2,17 @@ server:
   port: 8080
 
 spring:
-  rabbitmq:
-    host: localhost
-    username: user
-    password: password
-    port: 5672
+  mail:
+    username: "aliogutcen4135@gmail.com"
+    password: ${GMAIL_PASS}
+    host: smtp.gmail.com
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/FoodRegisterDb

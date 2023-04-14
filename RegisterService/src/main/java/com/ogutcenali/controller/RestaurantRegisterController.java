@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+
 import static com.ogutcenali.constant.EndPoints.RESTAURANT_REGISTER;
 import static com.ogutcenali.constant.EndPoints.SAVE;
 
@@ -19,7 +21,7 @@ public class RestaurantRegisterController {
 
     @PostMapping(SAVE)
     @CrossOrigin("*")
-    public ResponseEntity<?> doRegisterRestaurant(@RequestBody RegisterRestaurantRequestDto restaurantRequestDto){
+    public ResponseEntity<?> doRegisterRestaurant(@RequestBody RegisterRestaurantRequestDto restaurantRequestDto) throws MessagingException {
         return ResponseEntity.ok(restaurantService.register(restaurantRequestDto));
     }
 }

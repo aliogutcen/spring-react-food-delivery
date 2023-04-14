@@ -8,9 +8,11 @@ import com.ogutcenali.rabbitmq.model.RegisterRestaurantForAuth;
 import com.ogutcenali.rabbitmq.producer.RegisterProducer;
 import com.ogutcenali.repository.IRestaurantRepository;
 import com.ogutcenali.repository.entity.Restaurant;
+import com.ogutcenali.utility.EmailSenderService;
 import com.ogutcenali.utility.ServiceManager;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
 import java.util.Optional;
 
 @Service
@@ -19,19 +21,30 @@ public class RestaurantService extends ServiceManager<Restaurant, Long> {
     private final IRestaurantRepository restaurantRepository;
     private final AcceptRegisterRestaurantService acceptRegisterRestaurantService;
     private final RegisterProducer registerProducer;
-
-    public RestaurantService(IRestaurantRepository restaurantRepository, AcceptRegisterRestaurantService acceptRegisterRestaurantService, RegisterProducer registerProducer) {
+    private final EmailSenderService emailSenderService;
+    public RestaurantService(IRestaurantRepository restaurantRepository, AcceptRegisterRestaurantService acceptRegisterRestaurantService, RegisterProducer registerProducer, EmailSenderService emailSenderService) {
         super(restaurantRepository);
         this.restaurantRepository = restaurantRepository;
 
         this.acceptRegisterRestaurantService = acceptRegisterRestaurantService;
         this.registerProducer = registerProducer;
+        this.emailSenderService = emailSenderService;
     }
 
-    public Boolean register(RegisterRestaurantRequestDto restaurantRequestDto) {
+    public Boolean register(RegisterRestaurantRequestDto restaurantRequestDto) throws MessagingException {
         Optional<Restaurant> restaurantOptional = restaurantRepository.findOptionalByMail(restaurantRequestDto.getMail());
         if (restaurantOptional.isPresent()) throw new RegisterException(ErrorType.RESTAURANT_ALREADY_EXISTS);
         Restaurant restaurant = save(IRestaurantMapper.INSTANCE.toRestaurant(restaurantRequestDto));
+
+        /**
+         * KAYIT SONRASI PDF GONDERILDI
+         */
+
+        emailSenderService.sendMailWithAttachment(restaurant.getMail()
+                , restaurant.getManagerName()+"KAYIT İŞLEMİNİZ İÇİN GÖNDERMENİZ GEREKEN DOSYALAR"
+                ,restaurant.getRestaurantName()+" isimli şirkeiniz için kayıt işlemi yaptınız bu belgeleri göndermelisin"
+                ,"C:/Users/PC/Desktop/ali.pdf" );
+
 
         /**
          *KAYIT SONRASI ONAY İŞLEMİNE GİDER
