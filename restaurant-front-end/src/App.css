@@ -1,0 +1,238 @@
+/* REGISTER  */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.register {
+  display: flex;
+  height: 100vh;
+  background-color: #fafafa;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 50px;
+  background-image: url("https://images.unsplash.com/photo-1621972750749-0fbb1abb7736?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 35%;
+  opacity: 0.95;
+}
+.left-side h1 {
+  margin-top: 225px;
+  font-size: 72px;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 1.25px;
+  text-align: center;
+}
+
+/* color: rgb(255, 211, 0); */
+
+.right-side {
+  max-width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 50px 50px;
+  margin-left: 50px;
+}
+
+.right-side h6 {
+  color: #697488;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+.right-side p {
+  color: rgb(77, 76, 76);
+  font-size: 10px;
+}
+.restaurant-info {
+  display: flex;
+  gap: 15px;
+}
+
+.register input {
+  line-height: 50px;
+  list-style: none;
+  width: 350px;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 0px 10px;
+  border: gray 1px solid;
+}
+select {
+  line-height: 150px;
+  list-style: none;
+  width: 350px;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 15px 15px;
+  color: gray;
+  border: gray 1px solid;
+}
+.phone {
+  line-height: 150px;
+  list-style: none;
+  width: 410px;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 13px 13px;
+  color: gray;
+  margin-left: -45px;
+}
+.button-side {
+  display: flex;
+}
+
+#button {
+  line-height: 50px;
+  width: 350px;
+  background-color: #a2a2a2;
+  color: white;
+  font-weight: 600;
+  border: 0px solid white;
+  text-decoration: none;
+  text-align: center;
+}
+#button:hover {
+  opacity: 1;
+  transition: opacity 1s ease 0s;
+}
+#login_button {
+  display: none;
+}
+.error {
+  color: red;
+  font-weight: bold;
+}
+@media only screen and (max-device-width: 480px) {
+  .left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    background-image: url("https://images.unsplash.com/photo-1621972750749-0fbb1abb7736?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+    opacity: 0.95;
+  }
+  .left-side h1 {
+    margin-top: 200px;
+    font-size: 48px;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 1.25px;
+    text-align: center;
+  }
+  select {
+    line-height: 150px;
+    list-style: none;
+    width: 350px;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 13px 13px;
+    color: gray;
+    border: gray 1px solid;
+  }
+
+  .register {
+    margin-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-side {
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 0px 10px;
+    margin-left: 1px;
+  }
+  .restaurant-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-side h6 {
+    color: #697488;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .right-side p {
+    color: rgb(77, 76, 76);
+    font-size: 10px;
+  }
+  .restaurant-info {
+    display: flex;
+    gap: 15px;
+  }
+
+  .register input {
+    line-height: 50px;
+    list-style: none;
+    width: 350px;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 0px 10px;
+    border: gray 1px solid;
+  }
+  .region {
+    line-height: 150px;
+    list-style: none;
+    width: 350px;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 13px 13px;
+    color: gray;
+    border: gray 1px solid;
+  }
+  .phone {
+    line-height: 150px;
+    list-style: none;
+    width: 410px;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 13px 13px;
+    color: gray;
+    margin-left: -45px;
+  }
+  .button-side {
+    display: flex;
+  }
+
+  button {
+    line-height: 40px;
+    width: 350px;
+    background-color: #a2a2a2;
+    color: white;
+    font-weight: 600;
+    border: 0px solid white;
+  }
+  #login_button {
+    display: inline;
+    line-height: 40px;
+    width: 350px;
+    background-color: #a2a2a2;
+    color: white;
+    font-weight: 600;
+    border: 0px solid white;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
