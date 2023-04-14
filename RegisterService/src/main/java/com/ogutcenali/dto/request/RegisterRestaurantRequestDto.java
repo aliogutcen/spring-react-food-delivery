@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class RegisterRestaurantRequestDto {
-   private String country;
+    private String country;
     private String restaurantName;
     private Integer productsNumber;
     private String city;
@@ -23,5 +23,7 @@ public class RegisterRestaurantRequestDto {
 
     private String phone;
     private String tcNo;
+
+    private String password;
 
 }

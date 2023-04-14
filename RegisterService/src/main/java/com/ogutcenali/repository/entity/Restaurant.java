@@ -38,4 +38,6 @@ public class Restaurant extends BaseEntity {
     private String phone;
     private String tcNo;
 
+    private String password;
+
 }

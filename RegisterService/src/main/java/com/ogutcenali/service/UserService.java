@@ -3,6 +3,8 @@ package com.ogutcenali.service;
 import com.ogutcenali.dto.request.RegisterUserRequestDto;
 import com.ogutcenali.exception.ErrorType;
 import com.ogutcenali.exception.RegisterException;
+import com.ogutcenali.rabbitmq.model.RegisterUserForAuth;
+import com.ogutcenali.rabbitmq.producer.RegisterProducer;
 import com.ogutcenali.repository.IUserRepository;
 import com.ogutcenali.repository.entity.User;
 import com.ogutcenali.utility.ServiceManager;
@@ -14,10 +16,12 @@ import java.util.Optional;
 public class UserService extends ServiceManager<User, Long> {
 
     private final IUserRepository userRepository;
+    private final RegisterProducer registerProducer;
 
-    public UserService(IUserRepository userRepository) {
+    public UserService(IUserRepository userRepository, RegisterProducer registerProducer) {
         super(userRepository);
         this.userRepository = userRepository;
+        this.registerProducer = registerProducer;
     }
 
     public Boolean registerUser(RegisterUserRequestDto userRequestDto) {
@@ -35,7 +39,11 @@ public class UserService extends ServiceManager<User, Long> {
         /**
          * AUTH SERVICE KAYIT GONDERILECEK
          */
-
+        registerProducer.registerUserForAuth(RegisterUserForAuth.builder()
+                .mail(user.getMail())
+                .password(user.getPassword())
+                .username(user.getUsername())
+                .build());
         return true;
     }
 }

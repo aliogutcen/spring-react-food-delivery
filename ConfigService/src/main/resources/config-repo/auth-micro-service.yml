@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   rabbitmq:
@@ -9,9 +9,9 @@ spring:
     port: 5672
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/FoodRegisterDb
+    url: jdbc:postgresql://localhost:5432/FoodAuthDb
     username: postgres
-    password: Telefon310
+    password: root
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -19,3 +19,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+jwt:
+  secretKey: ${PASSWORD}

@@ -102,164 +102,171 @@ function Register() {
   };
 
   return (
-    <div className="register">
-      <div className="left-side">
-        <div className="left-side_title">
-          <h1>DELIVO</h1>
+    <div className="register_page">
+      <div className="register">
+        <div className="left-side">
+          <div className="left-side_title">
+            <h1>DELIVO</h1>
+          </div>
         </div>
-      </div>
-      <div className="right-side">
-        <form className="right-side" onSubmit={handleSubmit}>
-          <div>
-            <h6>Delivo-Apply Now</h6>
-            <p>
-              Become one of FoodCall's restaurant partners, grow your business
-              with less cost and increase customer satisfaction.
-            </p>
-          </div>
-          <div className="restaurant-info">
+        <div className="right-side">
+          <form className="right-side" onSubmit={handleSubmit}>
             <div>
-              <input
-                type="text"
-                placeholder="Restaurant Name"
-                onChange={(e) =>
-                  setRestaurant({
-                    ...restaurant,
-                    restaurantName: e.target.value,
-                  })
-                }
-              />
-              {formErrors.restaurantName && (
-                <p className="error">{formErrors.restaurantName}</p>
-              )}
+              <h6>Delivo-Apply Now</h6>
+              <p>
+                Become one of FoodCall's restaurant partners, grow your business
+                with less cost and increase customer satisfaction.
+              </p>
+            </div>
+            <div className="restaurant-info">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Restaurant Name"
+                  onChange={(e) =>
+                    setRestaurant({
+                      ...restaurant,
+                      restaurantName: e.target.value,
+                    })
+                  }
+                />
+                {formErrors.restaurantName && (
+                  <p className="error">{formErrors.restaurantName}</p>
+                )}
+              </div>
+              <div>
+                <CountryDropdown
+                  value={country}
+                  onChange={(val) => setCountry(val)}
+                />
+                {formErrors.country && (
+                  <p className="error">{formErrors.country}</p>
+                )}
+              </div>
+            </div>
+            <div className="restaurant-info">
+              <div>
+                <RegionDropdown
+                  className="region"
+                  country={country}
+                  value={region}
+                  onChange={(val) => setRegion(val)}
+                />
+                {formErrors.country && (
+                  <p className="error">{formErrors.country}</p>
+                )}
+              </div>
+              <div>
+                <input
+                  type="number"
+                  placeholder="How many products do you have "
+                  onChange={(e) =>
+                    setRestaurant({
+                      ...restaurant,
+                      productsNumber: e.target.value,
+                    })
+                  }
+                />
+                {formErrors.productsNumber && (
+                  <p className="error">{formErrors.productsNumber}</p>
+                )}
+              </div>
             </div>
             <div>
-              <CountryDropdown
-                value={country}
-                onChange={(val) => setCountry(val)}
-              />
-              {formErrors.country && (
-                <p className="error">{formErrors.country}</p>
-              )}
+              <h6>Company Official Information</h6>
+              <p>
+                Company authorised person information belongs to the person
+                information in the signature circular. You must make sure that
+                the information is filled in correctly and completely.
+              </p>
             </div>
-          </div>
-          <div className="restaurant-info">
-            <div>
-              <RegionDropdown
-                className="region"
-                country={country}
-                value={region}
-                onChange={(val) => setRegion(val)}
-              />
-              {formErrors.country && (
-                <p className="error">{formErrors.country}</p>
-              )}
-            </div>
-            <div>
-              <input
-                type="number"
-                placeholder="How many products do you have "
-                onChange={(e) =>
-                  setRestaurant({
-                    ...restaurant,
-                    productsNumber: e.target.value,
-                  })
-                }
-              />
-              {formErrors.productsNumber && (
-                <p className="error">{formErrors.productsNumber}</p>
-              )}
-            </div>
-          </div>
-          <div>
-            <h6>Company Official Information</h6>
-            <p>
-              Company authorised person information belongs to the person
-              information in the signature circular. You must make sure that the
-              information is filled in correctly and completely.
-            </p>
-          </div>
 
-          <div className="restaurant-info">
-            <div>
-              <input
-                type="text"
-                placeholder="Firstname  "
-                onChange={(e) =>
-                  setRestaurant({ ...restaurant, managerName: e.target.value })
-                }
-              />
-              {formErrors.managerName && (
-                <p className="error">{formErrors.managerName}</p>
-              )}
+            <div className="restaurant-info">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Firstname  "
+                  onChange={(e) =>
+                    setRestaurant({
+                      ...restaurant,
+                      managerName: e.target.value,
+                    })
+                  }
+                />
+                {formErrors.managerName && (
+                  <p className="error">{formErrors.managerName}</p>
+                )}
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Surname"
+                  onChange={(e) =>
+                    setRestaurant({
+                      ...restaurant,
+                      managerSurname: e.target.value,
+                    })
+                  }
+                />
+                {formErrors.managerSurname && (
+                  <p className="error">{formErrors.managerSurname}</p>
+                )}
+              </div>
             </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Surname"
-                onChange={(e) =>
-                  setRestaurant({
-                    ...restaurant,
-                    managerSurname: e.target.value,
-                  })
-                }
-              />
-              {formErrors.managerSurname && (
-                <p className="error">{formErrors.managerSurname}</p>
-              )}
+            <div className="restaurant-info">
+              <div>
+                <input
+                  type="email"
+                  placeholder="E-mail address  "
+                  onChange={(e) =>
+                    setRestaurant({ ...restaurant, mail: e.target.value })
+                  }
+                />
+                {formErrors.mail && <p className="error">{formErrors.mail}</p>}
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="T.C No"
+                  onChange={(e) =>
+                    setRestaurant({ ...restaurant, tcNo: e.target.value })
+                  }
+                />
+                {formErrors.tcNo && <p className="error">{formErrors.tcNo}</p>}
+              </div>
             </div>
-          </div>
-          <div className="restaurant-info">
-            <div>
-              <input
-                type="email"
-                placeholder="E-mail address  "
-                onChange={(e) =>
-                  setRestaurant({ ...restaurant, mail: e.target.value })
-                }
-              />
-              {formErrors.mail && <p className="error">{formErrors.mail}</p>}
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="T.C No"
-                onChange={(e) =>
-                  setRestaurant({ ...restaurant, tcNo: e.target.value })
-                }
-              />
-              {formErrors.tcNo && <p className="error">{formErrors.tcNo}</p>}
-            </div>
-          </div>
 
-          <div className="restaurant-info">
-            <div>
-              <PhoneInput
-                className="phone"
-                placeholder="Enter phone number"
-                onChange={(e) => setPhone(e)}
-              />
-              {formErrors.phone && <p className="error">{formErrors.phone}</p>}
+            <div className="restaurant-info">
+              <div>
+                <PhoneInput
+                  className="phone"
+                  placeholder="Enter phone number"
+                  onChange={(e) => setPhone(e)}
+                />
+                {formErrors.phone && (
+                  <p className="error">{formErrors.phone}</p>
+                )}
+              </div>
             </div>
-          </div>
-          <button
-            id="button"
-            type="submit"
-            onClick={(e) => {
-              setRestaurant({
-                ...restaurant,
-                phone: phone,
-                country: country,
-                city: region,
-              });
-            }}
-          >
-            Complate
-          </button>
-          <Link id="login_button" type="submit" to="/login">
-            Back to Login
-          </Link>
-        </form>
+            <button
+              id="button"
+              type="submit"
+              onClick={(e) => {
+                setRestaurant({
+                  ...restaurant,
+                  phone: phone,
+                  country: country,
+                  city: region,
+                });
+              }}
+            >
+              Complate
+            </button>
+            <Link id="login_button" type="submit" to="/login">
+              Back to Login
+            </Link>
+          </form>
+        </div>
       </div>
     </div>
   );
