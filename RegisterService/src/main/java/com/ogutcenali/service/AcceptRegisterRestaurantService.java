@@ -20,7 +20,7 @@ public class AcceptRegisterRestaurantService extends ServiceManager<AcceptRegist
     private final IAcceptRegisterRestaurantRepository acceptRegisterRestaurantRepository;
     private final RestaurantService restaurantService;
 
-    public AcceptRegisterRestaurantService(IAcceptRegisterRestaurantRepository acceptRegisterRestaurantRepository,@Lazy RestaurantService restaurantService) {
+    public AcceptRegisterRestaurantService(IAcceptRegisterRestaurantRepository acceptRegisterRestaurantRepository, @Lazy RestaurantService restaurantService) {
         super(acceptRegisterRestaurantRepository);
         this.acceptRegisterRestaurantRepository = acceptRegisterRestaurantRepository;
         this.restaurantService = restaurantService;
@@ -28,7 +28,7 @@ public class AcceptRegisterRestaurantService extends ServiceManager<AcceptRegist
 
     public void approvalProcess(Long id) {
         AcceptRegisterRestaurant registerRestaurant =
-                AcceptRegisterRestaurant.builder().restaurantId(id).eStatus(EStatus.PENDING).applicationDate(LocalDate.now()).build();
+                AcceptRegisterRestaurant.builder().restaurantId(id).eStatus(EStatus.PENDING).applicationDate(LocalDate.now()).isSendMail(false).build();
         save(registerRestaurant);
     }
 
@@ -50,14 +50,12 @@ public class AcceptRegisterRestaurantService extends ServiceManager<AcceptRegist
             acceptRegisterRestaurant.get().setEStatus(EStatus.ACCEPT);
             acceptRegisterRestaurant.get().setMessage("Your registration has been confirmed");
             update(acceptRegisterRestaurant.get());
-
             restaurantService.registerRestaurantForAuth(acceptRegisterRestaurant.get().getRestaurantId());
-
-
             return true;
-
-            //Auth servise kayıt gönderilecek
         }
+        acceptRegisterRestaurant.get().setEStatus(EStatus.NOT_ACCEPTED);
+        acceptRegisterRestaurant.get().setMessage("Your registration has not been confirmed");
+        update(acceptRegisterRestaurant.get());
         return false;
     }
 }

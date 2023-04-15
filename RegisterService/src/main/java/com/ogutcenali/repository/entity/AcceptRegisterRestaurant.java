@@ -26,8 +26,8 @@ public class AcceptRegisterRestaurant extends BaseEntity {
     private String message;
     @Column(columnDefinition = "DATE")
     private LocalDate applicationDate;
-
-
     @Enumerated(EnumType.STRING)
     EStatus eStatus;
+
+    private Boolean isSendMail;
 }

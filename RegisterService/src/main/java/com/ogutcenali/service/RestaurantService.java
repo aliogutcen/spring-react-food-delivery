@@ -13,6 +13,7 @@ import com.ogutcenali.utility.ServiceManager;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -22,6 +23,7 @@ public class RestaurantService extends ServiceManager<Restaurant, Long> {
     private final AcceptRegisterRestaurantService acceptRegisterRestaurantService;
     private final RegisterProducer registerProducer;
     private final EmailSenderService emailSenderService;
+
     public RestaurantService(IRestaurantRepository restaurantRepository, AcceptRegisterRestaurantService acceptRegisterRestaurantService, RegisterProducer registerProducer, EmailSenderService emailSenderService) {
         super(restaurantRepository);
         this.restaurantRepository = restaurantRepository;
@@ -39,32 +41,26 @@ public class RestaurantService extends ServiceManager<Restaurant, Long> {
         /**
          * KAYIT SONRASI PDF GONDERILDI
          */
-
         emailSenderService.sendMailWithAttachment(restaurant.getMail()
-                , restaurant.getManagerName()+"KAYIT İŞLEMİNİZ İÇİN GÖNDERMENİZ GEREKEN DOSYALAR"
-                ,restaurant.getRestaurantName()+" isimli şirkeiniz için kayıt işlemi yaptınız bu belgeleri göndermelisin"
-                ,"C:/Users/PC/Desktop/ali.pdf" );
+                ,  "The files you need to approve for the application process of your company named"+restaurant.getManagerName()
+                , " Your last day to send the documents 7 after signing the files you are expected to send the file to our support team."
+                , "C:/Users/PC/Desktop/ali.pdf");
 
 
-        /**
-         *KAYIT SONRASI ONAY İŞLEMİNE GİDER
-         * */
+        //initiating the approval process
         acceptRegisterRestaurantService.approvalProcess(restaurant.getId());
         return true;
     }
-
-
     public Boolean enoughForApproval(Long restaurantId) {
         Optional<Restaurant> restaurant = findById(restaurantId);
         if (restaurant.get().getProductsNumber() > 20) return true;
         return false;
     }
-
     public void registerRestaurantForAuth(Long restaurantId) {
         Optional<Restaurant> restaurant = findById(restaurantId);
         registerProducer.registerRestaurantForAuth(RegisterRestaurantForAuth.builder()
                 .mail(restaurant.get().getMail())
-                .password(restaurant.get().getPassword())
+                .password("1ali12345")
                 .build());
     }
 }

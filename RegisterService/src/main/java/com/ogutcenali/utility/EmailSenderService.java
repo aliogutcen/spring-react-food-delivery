@@ -26,7 +26,6 @@ public class EmailSenderService {
         mimeMessageHelper.setTo(toEmail);
         mimeMessageHelper.setText(body);
         mimeMessageHelper.setSubject(subject);
-
         FileSystemResource fileSystemResource = new FileSystemResource(new File(attchment));
         mimeMessageHelper.addAttachment(fileSystemResource.getFilename(),fileSystemResource);
         javaMailSender.send(mimeMessage);

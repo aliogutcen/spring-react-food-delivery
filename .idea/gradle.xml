@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/AuthService" />
             <option value="$PROJECT_DIR$/ConfigService" />
             <option value="$PROJECT_DIR$/RegisterService" />
+            <option value="$PROJECT_DIR$/SupportMicroService" />
           </set>
         </option>
       </GradleProjectSettings>

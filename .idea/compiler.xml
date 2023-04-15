@@ -10,6 +10,7 @@
         </processorPath>
         <module name="delivery.AuthService.main" />
         <module name="delivery.ConfigService.main" />
+        <module name="delivery.SupportMicroService.main" />
         <module name="delivery.main" />
         <module name="delivery.RegisterService.main" />
       </profile>

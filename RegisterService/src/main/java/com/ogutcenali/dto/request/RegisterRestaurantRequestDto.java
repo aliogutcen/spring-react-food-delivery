@@ -2,6 +2,8 @@ package com.ogutcenali.dto.request;
 
 import lombok.*;
 
+import java.util.UUID;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -24,6 +26,7 @@ public class RegisterRestaurantRequestDto {
     private String phone;
     private String tcNo;
 
-    private String password;
+    private String password = UUID.randomUUID().toString().substring(0,7);
+
 
 }
