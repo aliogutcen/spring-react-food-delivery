@@ -29,5 +29,4 @@ public class AcceptRegisterRestaurant extends BaseEntity {
     @Enumerated(EnumType.STRING)
     EStatus eStatus;
 
-    private Boolean isSendMail;
 }

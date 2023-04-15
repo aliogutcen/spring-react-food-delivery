@@ -25,8 +25,5 @@ public class AcceptRegisterRestaurantController {
         return ResponseEntity.ok(acceptRegisterRestaurantService.getALLAproval());
     }
 
-    @PostMapping("/apply/{id}")
-    public ResponseEntity<?> applyRestaurant(@PathVariable UUID id){
-        return ResponseEntity.ok(acceptRegisterRestaurantService.applyRestaurant(id));
-    }
+
 }

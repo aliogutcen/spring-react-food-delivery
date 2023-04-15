@@ -5,6 +5,7 @@ import com.ogutcenali.exception.ErrorType;
 import com.ogutcenali.exception.RegisterException;
 import com.ogutcenali.mapper.IRestaurantMapper;
 import com.ogutcenali.rabbitmq.model.RegisterRestaurantForAuth;
+import com.ogutcenali.rabbitmq.model.SupportRegisterRestaurant;
 import com.ogutcenali.rabbitmq.producer.RegisterProducer;
 import com.ogutcenali.repository.IRestaurantRepository;
 import com.ogutcenali.repository.entity.Restaurant;
@@ -45,9 +46,6 @@ public class RestaurantService extends ServiceManager<Restaurant, Long> {
                 ,  "The files you need to approve for the application process of your company named"+restaurant.getManagerName()
                 , " Your last day to send the documents 7 after signing the files you are expected to send the file to our support team."
                 , "C:/Users/PC/Desktop/ali.pdf");
-
-
-        //initiating the approval process
         acceptRegisterRestaurantService.approvalProcess(restaurant.getId());
         return true;
     }
@@ -62,5 +60,12 @@ public class RestaurantService extends ServiceManager<Restaurant, Long> {
                 .mail(restaurant.get().getMail())
                 .password("1ali12345")
                 .build());
+    }
+
+    public void acceptRestaurant(SupportRegisterRestaurant supportRegisterRestaurant) {
+        Optional<Restaurant> restaurant = restaurantRepository.findOptionalByMail(supportRegisterRestaurant.getMail());
+        System.out.println(restaurant.get());
+        acceptRegisterRestaurantService.applyRestaurant(restaurant.get().getId());
+
     }
 }

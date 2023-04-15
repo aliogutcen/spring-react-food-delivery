@@ -9,4 +9,6 @@ dependencies {
 
     implementation libs.springBootDataMongodb
     implementation libs.springCloudConfigClient
+    implementation libs.sprinBootRabbitMQ
+
 }

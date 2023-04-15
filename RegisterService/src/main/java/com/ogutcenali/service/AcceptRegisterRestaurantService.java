@@ -43,9 +43,8 @@ public class AcceptRegisterRestaurantService extends ServiceManager<AcceptRegist
 
     }
 
-    public Boolean applyRestaurant(UUID id) {
-        Optional<AcceptRegisterRestaurant> acceptRegisterRestaurant = findById(id);
-
+    public Boolean applyRestaurant(Long id) {
+        Optional<AcceptRegisterRestaurant> acceptRegisterRestaurant = acceptRegisterRestaurantRepository.findOptionalByRestaurantId(id);
         if (restaurantService.enoughForApproval(acceptRegisterRestaurant.get().getRestaurantId())) {
             acceptRegisterRestaurant.get().setEStatus(EStatus.ACCEPT);
             acceptRegisterRestaurant.get().setMessage("Your registration has been confirmed");

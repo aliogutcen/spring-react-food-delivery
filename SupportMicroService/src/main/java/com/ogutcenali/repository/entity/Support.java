@@ -33,5 +33,7 @@ public class Support extends BaseEntity {
     @DateTimeFormat
     LocalDate localDate;
 
+    Boolean isClose;
+
 
 }

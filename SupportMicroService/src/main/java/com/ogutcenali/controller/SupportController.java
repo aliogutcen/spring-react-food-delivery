@@ -29,8 +29,11 @@ public class SupportController {
     @GetMapping("/register-configration")
     public ResponseEntity<List<SupportRegistrationConfirmationResponse>> getAllRegistrationConfirmation(){
         return ResponseEntity.ok(supportService.getAllRegistrationConfirmation());
-
     }
 
+    @PostMapping("/accept/{id}")
+    public ResponseEntity<?> acceptForRegistrationConfirmation(@PathVariable String id){
+        return ResponseEntity.ok(supportService.acceptForRegistrationConfirmation(id));
+    }
 
 }
