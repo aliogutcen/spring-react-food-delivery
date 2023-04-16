@@ -28,7 +28,7 @@ public class AcceptRegisterRestaurantService extends ServiceManager<AcceptRegist
 
     public void approvalProcess(Long id) {
         AcceptRegisterRestaurant registerRestaurant =
-                AcceptRegisterRestaurant.builder().restaurantId(id).eStatus(EStatus.PENDING).applicationDate(LocalDate.now()).isSendMail(false).build();
+                AcceptRegisterRestaurant.builder().restaurantId(id).eStatus(EStatus.PENDING).applicationDate(LocalDate.now()).build();
         save(registerRestaurant);
     }
 

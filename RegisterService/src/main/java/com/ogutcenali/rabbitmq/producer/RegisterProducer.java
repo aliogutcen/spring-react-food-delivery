@@ -1,6 +1,6 @@
 package com.ogutcenali.rabbitmq.producer;
 
-import com.ogutcenali.rabbitmq.model.RegisterRestaurantForAuth;
+import com.ogutcenali.rabbitmq.model.RegisterRestaurant;
 import com.ogutcenali.rabbitmq.model.RegisterUserForAuth;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -17,7 +17,7 @@ public class RegisterProducer {
     }
 
 
-    public void registerRestaurantForAuth(RegisterRestaurantForAuth registerRestaurantForAuth){
-        rabbitTemplate.convertAndSend("direct-exchange-register-auth","keyRegisterRestaurant",registerRestaurantForAuth);
+    public void registerRestaurantForAuth(RegisterRestaurant registerRestaurantForAuth){
+        rabbitTemplate.convertAndSend("fanout-exchange-register-restaurant","",registerRestaurantForAuth);
     }
 }

@@ -3,4 +3,5 @@ include 'RegisterService'
 include 'ConfigService'
 include 'AuthService'
 include 'SupportMicroService'
+include 'RestaurantMicroService'
 

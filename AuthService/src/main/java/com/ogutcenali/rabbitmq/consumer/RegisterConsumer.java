@@ -1,6 +1,6 @@
 package com.ogutcenali.rabbitmq.consumer;
 
-import com.ogutcenali.rabbitmq.model.RegisterRestaurantForAuth;
+import com.ogutcenali.rabbitmq.model.RegisterRestaurant;
 import com.ogutcenali.rabbitmq.model.RegisterUserForAuth;
 import com.ogutcenali.service.RestaurantAuthService;
 import com.ogutcenali.service.UserAuthService;
@@ -21,7 +21,7 @@ public class RegisterConsumer {
     }
 
     @RabbitListener(queues ="queque-register-restaurant" )
-    public void registerRestaurantforAuth(RegisterRestaurantForAuth registerRestaurantForAuth){
+    public void registerRestaurantforAuth(RegisterRestaurant registerRestaurantForAuth){
         restaurantAuthService.registerRestaurant(registerRestaurantForAuth);
     }
 }

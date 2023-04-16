@@ -40,4 +40,5 @@ public class Restaurant extends BaseEntity {
 
     private String password;
 
+
 }

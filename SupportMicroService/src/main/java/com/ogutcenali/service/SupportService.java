@@ -59,8 +59,6 @@ public class SupportService extends ServiceManager<Support, String> {
         supportProducer.sendSupportAcceptRegisterForRestaurant(SupportRegisterRestaurant.builder()
                 .mail(support.get().getMail())
                 .build());
-
-
         return true;
 
     }

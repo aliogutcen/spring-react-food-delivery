@@ -1,0 +1,16 @@
+server:
+  port: 8083
+
+spring:
+  rabbitmq:
+    host: localhost
+    username: user
+    password: password
+    port: 5672
+  data:
+    mongodb:
+      host: localhost
+      port: 29001
+      username: "aliogutcen"
+      password: "root"
+      database: FoodRestaurant

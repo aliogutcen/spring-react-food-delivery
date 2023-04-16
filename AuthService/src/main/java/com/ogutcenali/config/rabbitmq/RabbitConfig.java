@@ -37,8 +37,5 @@ public class RabbitConfig {
         return new Queue(quequeRegisterRestaurant);
     }
 
-    @Bean
-    Binding registerRestaurant(DirectExchange directExchange, Queue quequeRegisterRestaurant) {
-        return BindingBuilder.bind(quequeRegisterRestaurant).to(directExchange).with(keyRegisterRestaurant);
-    }
+
 }

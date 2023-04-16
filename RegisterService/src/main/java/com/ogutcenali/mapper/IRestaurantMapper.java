@@ -1,6 +1,7 @@
 package com.ogutcenali.mapper;
 
 import com.ogutcenali.dto.request.RegisterRestaurantRequestDto;
+import com.ogutcenali.rabbitmq.model.RegisterRestaurant;
 import com.ogutcenali.repository.entity.Restaurant;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -12,4 +13,6 @@ public interface IRestaurantMapper {
     IRestaurantMapper INSTANCE = Mappers.getMapper(IRestaurantMapper.class);
 
     Restaurant toRestaurant(final RegisterRestaurantRequestDto restaurantRequestDto);
+
+    RegisterRestaurant toRegisterRestaurant(final Restaurant restaurant);
 }
