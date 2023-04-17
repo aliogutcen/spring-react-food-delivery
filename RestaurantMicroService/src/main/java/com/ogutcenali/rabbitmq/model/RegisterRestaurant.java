@@ -10,7 +10,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 @ToString
 public class RegisterRestaurant implements Serializable {
-
     private Integer productsNumber;
     private String country;
     private String restaurantName;
@@ -29,4 +28,6 @@ public class RegisterRestaurant implements Serializable {
     private String tcNo;
 
     private String password;
+
+    private Long authid;
 }

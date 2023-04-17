@@ -1,16 +1,20 @@
-package com.ogutcenali.rabbitmq.model;
+package com.ogutcenali.dto.response;
 
+import com.ogutcenali.repository.enums.WeekDays;
 import lombok.*;
 
-import java.io.Serializable;
+import java.time.LocalTime;
+import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class RegisterRestaurant implements Serializable {
+public class GetAllInfoForRestaurant {
 
+
+    private String id;
     private Integer productsNumber;
     private String country;
     private String restaurantName;
@@ -23,12 +27,9 @@ public class RegisterRestaurant implements Serializable {
 
     private String managerSurname;
 
-    private String mail;
+    List<WeekDays> openDays;
 
-    private String phone;
-    private String tcNo;
+    private LocalTime openTime;
 
-    private String password;
-
-    private Long authid;
+    private LocalTime closeTime;
 }

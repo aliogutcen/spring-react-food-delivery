@@ -4,7 +4,6 @@ import com.ogutcenali.dto.request.DoLoginAuth;
 import com.ogutcenali.dto.response.LoginResponseDto;
 import com.ogutcenali.exception.AuthException;
 import com.ogutcenali.exception.ErrorType;
-
 import com.ogutcenali.rabbitmq.model.RegisterRestaurant;
 import com.ogutcenali.repository.IRestaurantAuthRepository;
 import com.ogutcenali.repository.entity.RestaurantAuth;
@@ -26,16 +25,16 @@ public class RestaurantAuthService extends ServiceManager<RestaurantAuth, Long> 
     }
 
 
-
     public LoginResponseDto doLogin(DoLoginAuth doLoginAuth) {
         Optional<RestaurantAuth> restaurantAuth = restaurantAuthRepository.findOptionalByMailAndPassword(doLoginAuth.getMail(), doLoginAuth.getPassword());
         if (restaurantAuth.isEmpty()) throw new AuthException(ErrorType.AUTH_LOGIN_ERROR);
-        Optional<String> token =jwtTokenManager.createToken(restaurantAuth.get().getId());
+        Optional<String> token = jwtTokenManager.createToken(restaurantAuth.get().getAuthid());
         return LoginResponseDto.builder().token(token.get()).build();
     }
 
     public void registerRestaurant(RegisterRestaurant registerRestaurantForAuth) {
         RestaurantAuth restaurantAuth = RestaurantAuth.builder()
+                .authid(registerRestaurantForAuth.getAuthid())
                 .mail(registerRestaurantForAuth.getMail())
                 .password(registerRestaurantForAuth.getPassword()).build();
         save(restaurantAuth);

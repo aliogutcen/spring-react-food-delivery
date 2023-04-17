@@ -18,7 +18,7 @@ public class RestaurantAuth extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private Long authid;
     private String mail;
 
     private String password;

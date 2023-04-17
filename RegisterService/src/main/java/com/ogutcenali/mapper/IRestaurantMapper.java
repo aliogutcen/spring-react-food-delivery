@@ -4,6 +4,7 @@ import com.ogutcenali.dto.request.RegisterRestaurantRequestDto;
 import com.ogutcenali.rabbitmq.model.RegisterRestaurant;
 import com.ogutcenali.repository.entity.Restaurant;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
@@ -14,5 +15,6 @@ public interface IRestaurantMapper {
 
     Restaurant toRestaurant(final RegisterRestaurantRequestDto restaurantRequestDto);
 
+    @Mapping(target = "authid",source = "id")
     RegisterRestaurant toRegisterRestaurant(final Restaurant restaurant);
 }
