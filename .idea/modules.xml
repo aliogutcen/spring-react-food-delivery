@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AuthService/delivery.AuthService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AuthService/delivery.AuthService.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ConfigService/delivery.ConfigService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ConfigService/delivery.ConfigService.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ProductsService/delivery.ProductsService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ProductsService/delivery.ProductsService.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RegisterService/delivery.RegisterService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RegisterService/delivery.RegisterService.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RestaurantMicroService/delivery.RestaurantMicroService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/RestaurantMicroService/delivery.RestaurantMicroService.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SupportMicroService/delivery.SupportMicroService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/SupportMicroService/delivery.SupportMicroService.main.iml" />

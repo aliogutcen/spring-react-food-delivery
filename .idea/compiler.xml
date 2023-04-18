@@ -8,10 +8,11 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.26/8f8cf0372abf564913e9796623aac4c8ea44025a/lombok-1.18.26.jar" />
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.5.3.Final/dce418bedafd71ff8dd2cef15006c0fee788b073/mapstruct-processor-1.5.3.Final.jar" />
         </processorPath>
-        <module name="delivery.AuthService.main" />
         <module name="delivery.ConfigService.main" />
         <module name="delivery.RestaurantMicroService.main" />
+        <module name="delivery.ProductsService.main" />
         <module name="delivery.SupportMicroService.main" />
+        <module name="delivery.AuthService.main" />
         <module name="delivery.main" />
         <module name="delivery.RegisterService.main" />
       </profile>

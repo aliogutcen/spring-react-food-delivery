@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AuthService" />
             <option value="$PROJECT_DIR$/ConfigService" />
+            <option value="$PROJECT_DIR$/ProductsService" />
             <option value="$PROJECT_DIR$/RegisterService" />
             <option value="$PROJECT_DIR$/RestaurantMicroService" />
             <option value="$PROJECT_DIR$/SupportMicroService" />

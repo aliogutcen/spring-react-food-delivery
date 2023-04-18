@@ -1,6 +1,6 @@
 package com.ogutcenali.controller;
 
-import com.ogutcenali.dto.request.DefaultRequestDto;
+
 import com.ogutcenali.dto.request.UpdateRestaurantInformationRequestDto;
 import com.ogutcenali.dto.response.GetAllInfoForRestaurant;
 import com.ogutcenali.mapper.IRestaurantMapper;

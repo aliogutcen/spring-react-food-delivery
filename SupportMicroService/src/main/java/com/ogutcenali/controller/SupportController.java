@@ -15,6 +15,7 @@ import static com.ogutcenali.constant.EndPoints.SUPPORT;
 @RestController
 @RequestMapping(SUPPORT)
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class SupportController {
 
     private final SupportService supportService;

@@ -13,6 +13,7 @@ import {
   CountryRegionData,
 } from "react-country-region-selector";
 import { isValidPhoneNumber } from "react-phone-number-input";
+import UserService from "../../service/UserService";
 
 function Register() {
   const navigate = useNavigate();
@@ -40,22 +41,14 @@ function Register() {
     event.preventDefault();
     const errors = validateForm();
     if (Object.keys(errors).length === 0) {
-      try {
-        const response = await axios.post(
-          "http://localhost:8080/api/v1/restaurant-register/save",
-          restaurant
-        );
-        if (response.data) {
-          navigate("/");
+      UserService.addUser(restaurant).then(
+        () => {
+          alert("the user has been added succesfully!");
+        },
+        () => {
+          alert("the user has been added fa");
         }
-      } catch (error) {
-        console.log(error.response.data.message);
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: error.response.data.message,
-        });
-      }
+      );
     } else {
       setFormErrors(errors);
     }

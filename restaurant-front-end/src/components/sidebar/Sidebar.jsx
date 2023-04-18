@@ -9,6 +9,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Person2Icon from "@mui/icons-material/Person2";
 import LogoutIcon from "@mui/icons-material/Logout";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
 const Sidebar = () => {
   return (
     <div className="sidebar">
@@ -28,6 +29,11 @@ const Sidebar = () => {
             <Inventory2Icon className="icons" />
             <span>Products</span>
           </li>
+          <li>
+            <MenuBookIcon className="icons" />
+            <span>Menu</span>
+          </li>
+
           <li>
             <CreditCardIcon className="icons" />
             <span>Orders</span>

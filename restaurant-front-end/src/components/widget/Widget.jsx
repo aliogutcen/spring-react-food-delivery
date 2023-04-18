@@ -4,11 +4,30 @@ import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutl
 import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
-
 import ProductionQuantityLimitsOutlinedIcon from "@mui/icons-material/ProductionQuantityLimitsOutlined";
+import Products from "../../service/Products";
+import { useEffect, useState } from "react";
 const Widget = ({ type }) => {
   let data;
-  const amount = 100;
+
+  let [state, setState] = useState({
+    users: [],
+  });
+  const token =
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJNYW0iLCJpZCI6MSwiZXhwIjoxNjgxODI0OTk1LCJpYXQiOjE2ODE4MTk1OTV9.gS_KNJqLQRG_HQwygjJqX-gslRi-2R8HFME1NLKlOHXQgTbiMiiZMcUrVGZClnzN9cnHWIdLcJy-EnYkiv5Wdw";
+  useEffect(() => {
+    Products.getAllProducts(token).then(
+      (response) => {
+        setState(() => ({
+          users: response.data,
+        }));
+        console.log(JSON.stringify(state.users));
+      },
+      () => {}
+    );
+  }, []);
+
+  const amount = state.users.length;
   switch (type) {
     case "products":
       data = {

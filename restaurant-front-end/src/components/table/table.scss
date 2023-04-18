@@ -1,22 +1,22 @@
 .table {
-  .tableCell {
-    color: gray;
-  }
-  .tableCells {
-    color: gray;
-    font-weight: bold;
-  }
-  .status {
-    padding: 5px;
-    border-radius: 5px;
+  // .tableCell {
+  //   color: gray;
+  // }
+  // .tableCells {
+  //   color: gray;
+  //   font-weight: bold;
+  // }
+  // .status {
+  //   padding: 5px;
+  //   border-radius: 5px;
 
-    &.Approved {
-      color: green;
-      background-color: rgba(0, 128, 0, 0.205);
-    }
-    &.Pending {
-      color: goldenrod;
-      background-color: rgba(255, 255, 0, 0.13);
-    }
-  }
+  //   &.Approved {
+  //     color: green;
+  //     background-color: rgba(0, 128, 0, 0.205);
+  //   }
+  //   &.Pending {
+  //     color: goldenrod;
+  //     background-color: rgba(255, 255, 0, 0.13);
+  //   }
+  // }
 }

@@ -31,6 +31,7 @@ function App() {
             <Route path=":productId" element={<Singlepage />} />
             <Route path="new" element={<New />} />
           </Route>
+          <Route path="register" element={<Register />} />
         </Route>
       </Routes>
     </BrowserRouter>
