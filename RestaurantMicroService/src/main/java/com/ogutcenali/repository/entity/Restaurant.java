@@ -38,8 +38,6 @@ public class Restaurant extends BaseEntity {
 
     List<WeekDays> openDays;
 
-    @JsonFormat(pattern="KK:mm")
-    private LocalTime openTime;
-    @JsonFormat(pattern="KK:mm")
-    private LocalTime closeTime;
+    private String openTime;
+    private String closeTime;
 }

@@ -46,7 +46,7 @@ allprojects {
         implementation libs.springBootStarterValidation
         implementation libs.springCloudOpenFeign
         implementation libs.jwt
-
+        implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.13.3'
     }
 }
 configurations {

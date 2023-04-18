@@ -29,7 +29,7 @@ public class GetAllInfoForRestaurant {
 
     List<WeekDays> openDays;
 
-    private LocalTime openTime;
+    private String openTime;
 
-    private LocalTime closeTime;
+    private String closeTime;
 }

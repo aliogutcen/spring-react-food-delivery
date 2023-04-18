@@ -37,6 +37,7 @@ public class RestaurantService extends ServiceManager<Restaurant, Long> {
         if (restaurantOptional.isPresent()) throw new RegisterException(ErrorType.RESTAURANT_ALREADY_EXISTS);
         Restaurant restaurant = save(IRestaurantMapper.INSTANCE.toRestaurant(restaurantRequestDto));
 
+
         /**
          * KAYIT SONRASI PDF GONDERILDI
          */

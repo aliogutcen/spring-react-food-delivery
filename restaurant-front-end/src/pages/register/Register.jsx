@@ -1,12 +1,12 @@
 import React from "react";
-import Logo from "../img/logo.png";
+import Logo from "../../img/logo.png";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate, useNavigation } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import "./register.scss";
 import {
   CountryDropdown,
   RegionDropdown,

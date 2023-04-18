@@ -9,7 +9,6 @@ import com.ogutcenali.repository.entity.Restaurant;
 import com.ogutcenali.utility.JwtTokenManager;
 import com.ogutcenali.utility.ServiceManager;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
@@ -31,9 +30,12 @@ public class RestaurantService extends ServiceManager<Restaurant, String> {
     }
 
     public GetAllInfoForRestaurant updateInformation(UpdateRestaurantInformationRequestDto informationRequestDto) {
+
         Optional<Long> authid = jwtTokenManager.decodeToken(informationRequestDto.getToken());
         System.out.println(authid.get());
         Optional<Restaurant> restaurant = restaurantRepository.findOptionalByAuthid(authid.get());
+        System.out.println(restaurant.get());
+
         restaurant.get().setDistrict(informationRequestDto.getDistrict());
         restaurant.get().setNeighbourhood(informationRequestDto.getNeighbourhood());
         restaurant.get().setOpenDays(informationRequestDto.getOpenDays());
@@ -42,7 +44,22 @@ public class RestaurantService extends ServiceManager<Restaurant, String> {
         /**
          * AÇILIŞ VE KAPANIŞ SAATLERİNİ AYARLAMA!
          */
-       Restaurant restaurant1= update(restaurant.get());
+        Restaurant restaurant1 = update(restaurant.get());
         return IRestaurantMapper.INSTANCE.GET_ALL_INFO_FOR_RESTAURANT(restaurant1);
+
+    }
+
+
+
+
+
+    /**
+     * bilgileri getirme fonksiyonu
+     */
+    public GetAllInfoForRestaurant getAllInfoForRestaurantResponseEntity(String token) {
+        Optional<Long> authid = jwtTokenManager.decodeToken(token);
+        System.out.println(authid.get());
+        Optional<Restaurant> restaurant = restaurantRepository.findOptionalByAuthid(authid.get());
+        return IRestaurantMapper.INSTANCE.GET_ALL_INFO_FOR_RESTAURANT(restaurant.get());
     }
 }

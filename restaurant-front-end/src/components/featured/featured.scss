@@ -1,0 +1,42 @@
+.featured {
+  flex: 4;
+  padding: 10px;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  border-radius: 10px;
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: gray;
+    .title {
+      font-size: 18px;
+    }
+  }
+
+  .bottom {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    .featuredChart {
+      width: 175px;
+      height: 175px;
+    }
+    .title {
+      font-weight: 500;
+      color: gray;
+    }
+    .amount {
+      font-size: 30px;
+    }
+    .desc {
+      font-size: 12px;
+      font-weight: 300px;
+      color: gray;
+      text-align: center;
+    }
+  }
+}

@@ -2,6 +2,9 @@ server:
   port: 8083
 
 spring:
+  jackson:
+    serialization:
+      write-date-keys-as-timestamps: false
   rabbitmq:
     host: localhost
     username: user
