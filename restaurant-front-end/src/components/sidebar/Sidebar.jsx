@@ -10,6 +10,8 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import Person2Icon from "@mui/icons-material/Person2";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div className="sidebar">
@@ -24,11 +26,13 @@ const Sidebar = () => {
             <DashboardIcon className="icons" />
             <span>Dashboard</span>
           </li>
-          <p className="title">LIST</p>
-          <li>
-            <Inventory2Icon className="icons" />
-            <span>Products</span>
-          </li>
+          <p className="title">PRODUCT</p>
+          <Link to="/products" className="link">
+            <li>
+              <Inventory2Icon className="icons" />
+              <span>Products</span>
+            </li>
+          </Link>
           <li>
             <MenuBookIcon className="icons" />
             <span>Menu</span>
@@ -60,6 +64,11 @@ const Sidebar = () => {
             <Person2Icon className="icons" />
             <span>Profile</span>
           </li>
+          <li>
+            <AccessTimeIcon className="icons" />
+            <span>Opening Hours</span>
+          </li>
+
           <li>
             <LogoutIcon className="icons" />
             <span>Logout</span>

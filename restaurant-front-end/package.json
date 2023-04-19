@@ -22,6 +22,8 @@
     "react-phone-number-input": "^3.2.19",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.2",
+    "react-timeit": "^1.2.12",
     "recharts": "^2.5.0",
     "sass": "^1.62.0",
     "sweetalert2": "^11.7.3",

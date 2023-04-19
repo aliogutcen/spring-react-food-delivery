@@ -1,0 +1,25 @@
+.opening {
+  display: flex;
+  .openinTime {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 7;
+    .time {
+      -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      border-radius: 10px;
+      height: 80%;
+      .days {
+        display: flex;
+        flex-direction: column;
+        h2 {
+          color: gray;
+          font-weight: bolder;
+        }
+        .weekDay {
+        }
+      }
+    }
+  }
+}

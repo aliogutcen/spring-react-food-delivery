@@ -5,28 +5,24 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
-import nonapi.io.github.classgraph.json.Id;
+import org.bson.types.Binary;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.List;
-
 
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Document(value = "products")
-public class Product extends BaseEntity {
+@Document(value = "category")
+public class Category extends BaseEntity {
 
-    @Id
     private String id;
-    private Long restaurantId;
-    private String name;
-    private double price;
-    private String ingreditions;
-    private List<SizeOption> sizeOptions;
+    private String categoryName;
 
-    private Category category;
+    private String desc;
+
+    private Boolean isVegan;
+
+
 
 }

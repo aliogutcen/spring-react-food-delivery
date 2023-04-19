@@ -8,6 +8,7 @@ import Login from "./pages/login/Login";
 import List from "./pages/list/List";
 import Singlepage from "./pages/singlepage/Singlepage";
 import New from "./pages/new/New";
+import Opening from "./pages/opening/Opening";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -25,6 +26,7 @@ function App() {
             <Route index element={<List />} />
             <Route path=":userId" element={<Singlepage />} />
             <Route path="new" element={<New />} />
+            <Route path="openinghours" element={<Opening />} />
           </Route>
           <Route path="products">
             <Route index element={<List />} />
@@ -35,8 +37,6 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-
-    //
   );
 }
 

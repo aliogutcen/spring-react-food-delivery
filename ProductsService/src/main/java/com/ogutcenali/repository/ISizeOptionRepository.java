@@ -5,10 +5,13 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface ISizeOptionRepository extends MongoRepository<SizeOption, String> {
 
     Optional<SizeOption> findByLabelAndRestaurantId(String label,Long restaurantId);
+
+    List<SizeOption> findByRestaurantId(Long restaurantId);
 }

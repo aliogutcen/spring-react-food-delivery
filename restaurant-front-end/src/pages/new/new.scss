@@ -1,4 +1,162 @@
+:root {
+  --form-control-color: rebeccapurple;
+  --form-control-disabled: #959495;
+}
+
 .new {
   width: 100%;
   display: flex;
+  .newContainer {
+    flex: 7;
+    .top,
+    .bottom {
+      -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+      padding: 10px;
+      margin: 20px;
+      display: flex;
+
+      h1 {
+        color: gray;
+        font-size: 24px;
+      }
+      .left {
+        flex: 1;
+        text-align: center;
+
+        img {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+      .right {
+        flex: 2;
+
+        .product-info {
+          display: flex;
+          gap: 50px;
+          .product-info-left-side {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            input {
+              width: 300px;
+              border: none;
+              border-bottom: 1px solid black;
+            }
+            textarea {
+              resize: none;
+              color: gray;
+            }
+          }
+          .sizeOption {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            .sizeOptionList {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+            }
+          }
+          .selectCategory {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 10px;
+            .categoryList {
+              display: flex;
+              gap: 10px;
+              align-items: center;
+              text-align: center;
+            }
+          }
+          .product-info-right-side {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            h2 {
+              font-size: 14px;
+              color: gray;
+            }
+            span {
+              font-size: 12px;
+              font-weight: 600;
+              color: gray;
+            }
+            button {
+              background-color: #ea004b;
+              border: none;
+              line-height: 35px;
+              color: white;
+              font-weight: bold;
+              letter-spacing: 1.15px;
+            }
+            button:hover {
+              background: #3ad2d0;
+            }
+            nput[type="checkbox"] {
+              -webkit-appearance: none;
+
+              appearance: none;
+
+              background-color: var(--form-background);
+
+              margin: 0;
+
+              font: inherit;
+              color: currentColor;
+              width: 1.15em;
+              height: 1.15em;
+              border: 0.15em solid currentColor;
+              border-radius: 0.15em;
+              transform: translateY(-0.075em);
+
+              display: grid;
+              place-content: center;
+            }
+
+            input[type="checkbox"]::before {
+              content: "";
+              width: 0.65em;
+              height: 0.65em;
+              clip-path: polygon(
+                14% 44%,
+                0 65%,
+                50% 100%,
+                100% 16%,
+                80% 0%,
+                43% 62%
+              );
+              transform: scale(0);
+              transform-origin: bottom left;
+              transition: 120ms transform ease-in-out;
+              box-shadow: inset 1em 1em var(--form-control-color);
+              /* Windows High Contrast Mode */
+              background-color: CanvasText;
+            }
+
+            input[type="checkbox"]:checked::before {
+              transform: scale(1);
+            }
+
+            input[type="checkbox"]:focus {
+              outline: max(2px, 0.15em) solid currentColor;
+              outline-offset: max(2px, 0.15em);
+            }
+
+            input[type="checkbox"]:disabled {
+              --form-control-color: var(--form-control-disabled);
+
+              color: var(--form-control-disabled);
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+    }
+  }
 }

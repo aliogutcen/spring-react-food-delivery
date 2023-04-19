@@ -46,7 +46,7 @@ function Register() {
           alert("the user has been added succesfully!");
         },
         () => {
-          alert("the user has been added fa");
+          alert("the user has been added faild");
         }
       );
     } else {

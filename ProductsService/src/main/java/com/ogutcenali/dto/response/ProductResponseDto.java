@@ -1,6 +1,7 @@
 package com.ogutcenali.dto.response;
 
-import com.ogutcenali.repository.entity.ExtraOptions;
+
+import com.ogutcenali.repository.entity.Category;
 import com.ogutcenali.repository.entity.SizeOption;
 import lombok.*;
 
@@ -19,5 +20,7 @@ public class ProductResponseDto {
     private double price;
     private List<String> ingreditions;
     List<SizeOption> sizeOptions;
-    List<ExtraOptions> extraOptions;
+
+    Category category;
+
 }

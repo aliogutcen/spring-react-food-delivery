@@ -2,6 +2,11 @@ server:
   port: 8084
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 256MB
+      max-request-size: 256MB
+      enabled: true
   jackson:
     serialization:
       write-date-keys-as-timestamps: false

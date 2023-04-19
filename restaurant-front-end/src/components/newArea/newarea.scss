@@ -1,0 +1,16 @@
+.newarea {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 5px 25px;
+  margin-top: 5px;
+
+  .link {
+    font-weight: 600;
+    color: gray;
+    border-bottom: 0.3px solid gray;
+  }
+  .link:hover {
+    color: red;
+  }
+}
