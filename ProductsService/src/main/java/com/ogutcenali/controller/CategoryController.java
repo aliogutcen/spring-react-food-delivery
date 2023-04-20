@@ -1,6 +1,7 @@
 package com.ogutcenali.controller;
 
 import com.ogutcenali.dto.request.AddNewCategory;
+import com.ogutcenali.dto.response.CategoryResponse;
 import com.ogutcenali.dto.response.ProductResponseDto;
 import com.ogutcenali.service.CategoryService;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import static com.ogutcenali.constant.EndPoints.*;
 @RestController
 @RequestMapping(CATEGORY)
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -27,5 +29,9 @@ public class CategoryController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCategory(@PathVariable String id){
         return ResponseEntity.ok(categoryService.deleteCategory(id));
+    }
+    @GetMapping("/categories")
+    public ResponseEntity<List<CategoryResponse>> getAllCategory(){
+        return ResponseEntity.ok(categoryService.getAllCategory());
     }
 }

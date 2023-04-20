@@ -3,7 +3,7 @@ package com.ogutcenali.service;
 import com.ogutcenali.dto.request.RegisterUserRequestDto;
 import com.ogutcenali.exception.ErrorType;
 import com.ogutcenali.exception.RegisterException;
-import com.ogutcenali.rabbitmq.model.RegisterUserForAuth;
+import com.ogutcenali.rabbitmq.model.RegisterUser;
 import com.ogutcenali.rabbitmq.producer.RegisterProducer;
 import com.ogutcenali.repository.IUserRepository;
 import com.ogutcenali.repository.entity.User;
@@ -39,10 +39,11 @@ public class UserService extends ServiceManager<User, Long> {
         /**
          * AUTH SERVICE KAYIT GONDERILECEK
          */
-        registerProducer.registerUserForAuth(RegisterUserForAuth.builder()
+        registerProducer.registerUserForAuth(RegisterUser.builder()
                 .mail(user.getMail())
                 .password(user.getPassword())
                 .username(user.getUsername())
+                .userId(user.getId())
                 .build());
         return true;
     }

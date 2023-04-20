@@ -6,11 +6,11 @@ import com.ogutcenali.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import static com.ogutcenali.constant.EndPoints.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("PRODUCT")
+@RequestMapping(PRODUCT)
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class ProductController {
@@ -21,7 +21,7 @@ public class ProductController {
     public ResponseEntity<Boolean> addNewProduct(@RequestBody AddNewProductRequestDto addNewProductRequestDto){
         return ResponseEntity.ok(productService.addNewProduct(addNewProductRequestDto));
     }
-    @GetMapping("/products/{token}")
+    @GetMapping("/{token}")
     public ResponseEntity<List<ProductResponseDto>> getAllProductForRestaurant(@PathVariable String token){
         return ResponseEntity.ok(productService.getAllProductForRestaurant(token));
     }
@@ -38,7 +38,6 @@ public class ProductController {
         return ResponseEntity.ok(productService.updateProductName(id, productName));
     }
 
-    @GetMapping("/category/")
-    public ResponseEntity<List<ProductResponseDto>>
+
 
 }

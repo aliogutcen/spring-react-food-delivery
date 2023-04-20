@@ -13,6 +13,7 @@
         <module name="delivery.ProductsService.main" />
         <module name="delivery.SupportMicroService.main" />
         <module name="delivery.AuthService.main" />
+        <module name="delivery.CustomerService.main" />
         <module name="delivery.main" />
         <module name="delivery.RegisterService.main" />
       </profile>

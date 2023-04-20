@@ -8,19 +8,21 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfig {
 
     private String exchange = "direct-exchange-register-auth";
+
     private String fanoutExchange = "fanout-exchange-register-restaurant";
+
+    private String fanoutExchangeCustomer = "fanout-exchange-register-customer";
 
     private String quequeRegisterRestaurantMicroSrvice = "quequ-register-micro-service";
     private String quequeRegisterUser = "queque-register-user";
-    private String keyRegisterUser = "keyRegisterUser";
 
+    private String registerCustomer = "queque-register-customer";
     private String quequeRegisterFromSupport = "queuqe-register-from-support";
-
 
     private String keyRegisterFromSupport = "key-register-support";
 
     private String quequeRegisterRestaurant = "queque-register-restaurant";
-    private String keyRegisterRestaurant = "keyRegisterRestaurant";
+
 
     @Bean
     DirectExchange directExchange() {
@@ -33,14 +35,41 @@ public class RabbitConfig {
     }
 
     @Bean
+    FanoutExchange fanoutExchangeCustomer() {
+        return new FanoutExchange(fanoutExchangeCustomer);
+    }
+
+
+    /**
+     * START
+     * AUTH-MICROSERVICES REGISTER USER AND CUSTOMER MICROSERVICE REGISTER USER
+     */
+
+
+    @Bean
     Queue quequeRegisterUser() {
         return new Queue(quequeRegisterUser);
     }
 
     @Bean
-    Binding registerUser(DirectExchange directExchange, Queue quequeRegisterUser) {
-        return BindingBuilder.bind(quequeRegisterUser).to(directExchange).with(keyRegisterUser);
+    Binding registerAuthUser(FanoutExchange fanoutExchangeCustomer, Queue quequeRegisterUser) {
+        return BindingBuilder.bind(quequeRegisterUser).to(fanoutExchangeCustomer);
     }
+
+    @Bean
+    Queue registerCustomer() {
+        return new Queue(registerCustomer);
+    }
+
+    @Bean
+    Binding registerCustomer(FanoutExchange fanoutExchangeCustomer, Queue registerCustomer) {
+        return BindingBuilder.bind(registerCustomer).to(fanoutExchangeCustomer);
+    }
+
+    /**
+     * FINISH
+     * AUTH-MICROSERVICES REGISTER USER AND CUSTOMER MICROSERVICE REGISTER USER
+     */
 
 
     @Bean

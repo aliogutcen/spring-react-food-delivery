@@ -9,7 +9,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class RegisterUserForAuth implements Serializable {
+public class RegisterUser implements Serializable {
 
     private String mail;
 
@@ -17,5 +17,5 @@ public class RegisterUserForAuth implements Serializable {
 
     private String password;
 
-
+    private Long userId;
 }

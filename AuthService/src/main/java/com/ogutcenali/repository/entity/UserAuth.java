@@ -24,6 +24,7 @@ public class UserAuth extends BaseEntity {
 
     private String password;
 
+    private Long authid;
     @Enumerated(EnumType.STRING)
     @Builder.Default
     ERole role = ERole.USER;

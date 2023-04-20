@@ -1,6 +1,7 @@
 package com.ogutcenali.service;
 
 import com.ogutcenali.dto.request.AddNewCategory;
+import com.ogutcenali.dto.response.CategoryResponse;
 import com.ogutcenali.dto.response.ProductResponseDto;
 import com.ogutcenali.exception.AuthException;
 import com.ogutcenali.exception.ErrorType;
@@ -9,6 +10,7 @@ import com.ogutcenali.repository.entity.Category;
 import com.ogutcenali.utility.ServiceManager;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +41,7 @@ public class CategoryService extends ServiceManager<Category, String> {
                 .desc(addNewCategory.getDesc())
                 .isVegan(addNewCategory.getIsVegan())
                 .build();
+        save(cat);
         return true;
     }
 
@@ -51,5 +54,19 @@ public class CategoryService extends ServiceManager<Category, String> {
         Optional<Category> category = findById(id);
         delete(category.get());
         return true;
+    }
+
+    public List<CategoryResponse> getAllCategory() {
+        List<CategoryResponse> categoryResponses = new ArrayList<>();
+        findAll().forEach(x -> {
+            categoryResponses.add(CategoryResponse.builder()
+                    .categoryName(x.getCategoryName())
+                    .desc(x.getDesc())
+                    .isVegan(x.getIsVegan())
+
+
+                    .build());
+        });
+        return categoryResponses;
     }
 }

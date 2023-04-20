@@ -21,5 +21,5 @@ public class AddNewProductRequestDto {
 
     String categoryName;
 
-    List<String> ingreditions;
+
 }

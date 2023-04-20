@@ -8,31 +8,26 @@ import Products from "../../service/Products";
 import Category from "../../../src/category";
 function New() {
   const [file, setFile] = useState("");
-  console.log(file);
-  const category = [
-    {
-      name: "Breakfast",
-    },
-    { name: "Fast Food" },
-    {
-      name: "Pizza",
-    },
-    { name: "Healty" },
-    {
-      name: "Indian",
-    },
-    { name: "Chinese" },
-    { name: "Sandwich" },
-    { name: "American" },
-    { name: "Sushi" },
-  ];
-
-  console.log(category);
-
+  const [selected, setSelected] = useState([]);
   const token =
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJNYW0iLCJpZCI6MSwiZXhwIjoxNjgxOTA5MDY0LCJpYXQiOjE2ODE5MDM2NjR9.puk9VcGEQYFl3YpLNlbGiZV8HWJzimg4Da2obNVTMNPvTZf2zDJQEUyVNQPwgb-VsJTZAetKcdC_m8FmOdthng";
 
-  const [selected, setSelected] = useState([]);
+  let [category, setCategory] = useState({
+    category: [],
+  });
+
+  useEffect(() => {
+    Products.getAllCategories().then(
+      (response) => {
+        setCategory(() => ({
+          category: response.data,
+        }));
+      },
+      () => {}
+    );
+  }, []);
+
+  console.log(category.category);
 
   let [api, setApi] = useState({
     sizeOption: [],
@@ -127,15 +122,15 @@ function New() {
                       <h2>Category:</h2>
                     </div>
                     <div className="categoryList">
-                      {category.map((deneme, i) => (
+                      {category.category.map((deneme, i) => (
                         <div key={i}>
                           <input
                             id={i}
                             type="checkbox"
-                            value={deneme.name}
+                            value={deneme.categoryName}
                             onChange={(e) => handleChange(e, i)}
                           />{" "}
-                          <span>{deneme.name}</span>
+                          <span>{deneme.categoryName}</span>
                         </div>
                       ))}
                     </div>

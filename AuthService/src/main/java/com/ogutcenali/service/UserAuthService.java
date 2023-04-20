@@ -4,7 +4,8 @@ import com.ogutcenali.dto.request.DoLoginAuth;
 import com.ogutcenali.dto.response.LoginResponseDto;
 import com.ogutcenali.exception.AuthException;
 import com.ogutcenali.exception.ErrorType;
-import com.ogutcenali.rabbitmq.model.RegisterUserForAuth;
+import com.ogutcenali.rabbitmq.model.RegisterUser;
+
 import com.ogutcenali.repository.IUserAuthRepository;
 import com.ogutcenali.repository.entity.UserAuth;
 import com.ogutcenali.utility.JwtTokenManager;
@@ -25,11 +26,12 @@ public class UserAuthService extends ServiceManager<UserAuth, Long> {
         this.jwtTokenManager = jwtTokenManager;
     }
 
-    public void registerUser(RegisterUserForAuth registerUserForAuth) {
+    public void registerUser(RegisterUser registerUserForAuth) {
         UserAuth userAuth = UserAuth.builder()
                 .mail(registerUserForAuth.getMail())
                 .username(registerUserForAuth.getUsername())
                 .password(registerUserForAuth.getPassword())
+                .authid(registerUserForAuth.getUserId())
                 .build();
         save(userAuth);
     }

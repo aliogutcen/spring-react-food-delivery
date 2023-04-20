@@ -9,6 +9,7 @@ import com.ogutcenali.repository.entity.Category;
 import com.ogutcenali.repository.entity.Product;
 import com.ogutcenali.utility.JwtTokenManager;
 import com.ogutcenali.utility.ServiceManager;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class ProductService extends ServiceManager<Product, String> {
     private final JwtTokenManager jwtTokenManager;
     private final CategoryService categoryService;
 
-    public ProductService(IProductRepository productRepository, JwtTokenManager jwtTokenManager, CategoryService categoryService) {
+    public ProductService(IProductRepository productRepository, JwtTokenManager jwtTokenManager,@Lazy CategoryService categoryService) {
         super(productRepository);
         this.productRepository = productRepository;
         this.jwtTokenManager = jwtTokenManager;
