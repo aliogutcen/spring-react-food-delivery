@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AuthService" />
+            <option value="$PROJECT_DIR$/BasketService" />
             <option value="$PROJECT_DIR$/ConfigService" />
             <option value="$PROJECT_DIR$/CustomerService" />
             <option value="$PROJECT_DIR$/ProductsService" />

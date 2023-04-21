@@ -12,6 +12,7 @@
         <module name="delivery.RestaurantMicroService.main" />
         <module name="delivery.ProductsService.main" />
         <module name="delivery.SupportMicroService.main" />
+        <module name="delivery.BasketService.main" />
         <module name="delivery.AuthService.main" />
         <module name="delivery.CustomerService.main" />
         <module name="delivery.main" />

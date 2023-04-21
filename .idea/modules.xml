@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AuthService/delivery.AuthService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AuthService/delivery.AuthService.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BasketService/delivery.BasketService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/BasketService/delivery.BasketService.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ConfigService/delivery.ConfigService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ConfigService/delivery.ConfigService.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/CustomerService/delivery.CustomerService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/CustomerService/delivery.CustomerService.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ProductsService/delivery.ProductsService.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ProductsService/delivery.ProductsService.main.iml" />
