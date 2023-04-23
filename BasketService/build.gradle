@@ -8,5 +8,5 @@ dependencies {
 
     implementation libs.sprinBootRabbitMQ
     implementation libs.springBootStarterDataRedis
-
+    implementation libs.springCloudConfigClient
 }

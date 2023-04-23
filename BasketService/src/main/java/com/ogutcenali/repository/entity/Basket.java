@@ -18,8 +18,6 @@ public class Basket {
     @Id
     private String id;
 
-    private Long authId;
-
     private Map<String, Integer> products;
 
 

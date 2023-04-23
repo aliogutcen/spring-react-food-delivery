@@ -20,12 +20,14 @@ public class BasketService {
 
     public Object addToProduct(AddToProductRequestDto addToProductRequestDto) {
         Optional<Long> authId = jwtTokenManager.decodeToken(addToProductRequestDto.getToken());
-        Optional<Basket> basket = basketRepository.findOptionalByAuthId(authId.get());
+
+        Optional<Basket> basket = basketRepository.findById(String.valueOf(authId.get()));
+        System.out.println(basket);
         if (basket.isEmpty()) {
             Map<String, Integer> products = new HashMap<>();
             products.put(addToProductRequestDto.getProductId(), addToProductRequestDto.getQuantity());
             Basket cart = Basket.builder()
-                    .authId(authId.get())
+                    .id(String.valueOf(authId.get()))
                     .products(products)
                     .build();
             basketRepository.save(cart);
@@ -38,7 +40,25 @@ public class BasketService {
                 basketRepository.save(basket.get());
             }
         }
+        return true;
+    }
 
+    public Map<String, Integer> getBasketProducts(String basketId) {
+        Optional<Basket> basket = basketRepository.findById(basketId);
+        return basket.get().getProducts();
+    }
+
+    public Object deletePorductInBasket(String basketId, String productId) {
+        Optional<Basket> basket = basketRepository.findById(basketId);
+        basket.get().getProducts().remove(productId);
+        basketRepository.save(basket.get());
+        return true;
+    }
+
+    public Object deleteAllProductInBasket(String basketId) {
+        Optional<Basket> basket = basketRepository.findById(basketId);
+        basket.get().getProducts().clear();
+        basketRepository.save(basket.get());
         return true;
     }
 }
