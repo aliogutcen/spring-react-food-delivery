@@ -7,4 +7,5 @@ include 'RestaurantMicroService'
 include 'ProductsService'
 include 'CustomerService'
 include 'BasketService'
+include 'OrderService'
 
