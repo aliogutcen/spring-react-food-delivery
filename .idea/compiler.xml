@@ -15,6 +15,7 @@
         <module name="delivery.BasketService.main" />
         <module name="delivery.AuthService.main" />
         <module name="delivery.CustomerService.main" />
+        <module name="delivery.OrderService.main" />
         <module name="delivery.main" />
         <module name="delivery.RegisterService.main" />
       </profile>

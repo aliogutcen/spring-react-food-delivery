@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/BasketService" />
             <option value="$PROJECT_DIR$/ConfigService" />
             <option value="$PROJECT_DIR$/CustomerService" />
+            <option value="$PROJECT_DIR$/OrderService" />
             <option value="$PROJECT_DIR$/ProductsService" />
             <option value="$PROJECT_DIR$/RegisterService" />
             <option value="$PROJECT_DIR$/RestaurantMicroService" />
